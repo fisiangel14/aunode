@@ -1,0 +1,9 @@
+lower_case_table_names = 1
+innodb_buffer_pool_size = 24G
+innodb_buffer_pool_instances = 1
+event_scheduler = on
+innodb_log_file_size = 2G
+query_cache_type = 0
+innodb_flush_log_at_trx_commit = 1
+innodb_flush_method = O_DIRECT
+default-time-zone='+00:00'
