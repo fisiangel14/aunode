@@ -1,0 +1,194 @@
+select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 29.90')
+   and usage_threshold_id in ('7270')
+   and a.usage_threshold_value not in ('6285164544','10580131840')
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 29.90')
+   and usage_threshold_id in ('7271')
+   and a.usage_threshold_value <> '157286400'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 39.90')
+   and usage_threshold_id in ('7270')
+   and a.usage_threshold_value not in ('9395240960','25501368320')
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 39.90')
+   and usage_threshold_id in ('7271')
+   and a.usage_threshold_value <> '1342177280'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 49.90')
+   and usage_threshold_id in ('7270')
+   and a.usage_threshold_value <> '12884901888'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 49.90')
+   and usage_threshold_id in ('7271')
+   and a.usage_threshold_value <> '2147483648'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 49.90')
+   and usage_threshold_id in ('8580')
+   and a.usage_threshold_value <> '30064771072'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 49.90')
+   and usage_threshold_id in ('8583')
+   and a.usage_threshold_value <> '2147483648'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max 59.90')
+   and usage_threshold_id in ('7270')
+   and a.usage_threshold_value <> '13421772800'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+         a.subscriber_id subscriber_id,
+         a.usage_threshold_id,
+         a.usage_threshold_value,
+         b.des_plan,
+         b.ciclo,
+         rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+    from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+         aseging.kv_lineas_postpago_one b
+   where subscriber_id = to_char(numero)
+     and des_plan in ('Max 59.90')
+     and usage_threshold_id in ('7271')
+     and a.usage_threshold_value <> '2684354560'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max Ilimitado 55.90')
+   and usage_threshold_id in ('8515')
+   and a.usage_threshold_value not in ('51002736640','11274289152')
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max Ilimitado 55.90')
+   and usage_threshold_id in ('8516')
+   and a.usage_threshold_value not in ('2684354560')
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'))
+UNION
+(select a.transact_date,
+       a.subscriber_id subscriber_id,
+       a.usage_threshold_id,
+       a.usage_threshold_value,
+       b.des_plan,
+       b.ciclo,
+       rank() over(partition by a.subscriber_id order by a.usage_threshold_id asc) posicion,'20220822',0,'',''
+  from DWS.Cbio_Usage_Threshold       partition(P_20220822) a,
+       aseging.kv_lineas_postpago_one b
+ where subscriber_id = to_char(numero)
+   and des_plan in ('Max Ilimitado 55.90')
+   and usage_threshold_id in ('8517')
+   and a.usage_threshold_value <> '1073741824'
+and PO_ID NOT IN ('maxInternacional29','Max49_90SY_One','Max59_90SY_One','Max35_90SY_One'));
