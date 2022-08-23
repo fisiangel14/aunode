@@ -1,0 +1,318 @@
+select a.transact_date,a.subscriber_id, a.usage_threshold_id, a.usage_threshold_value, a.des_plan, a.ciclo, a.Po_Id, a.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id desc) posicion
+               from DWS.Cbio_Usage_Threshold      
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in
+               ('Max 59.90', 'Max 29.90', 'Max 49.90', 'Max 39.90')
+           and usage_threshold_id in ('7270', '7271'))a
+ where (usage_threshold_id = '7271' and posicion = 0)
+   AND PO_ID NOT IN ('maxInternacional29',
+                     'Max49_90SY_One',
+                     'Max59_90SY_One',
+                     'Max35_90SY_One')
+UNION
+select  b.transact_date,b.subscriber_id, b.usage_threshold_id, b.usage_threshold_value, b.des_plan, b.ciclo, b.Po_Id, b.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id desc) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 75.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))b
+ where (usage_threshold_id = '7270' and posicion = 0)
+   AND PO_ID NOT IN ('maxInternacional29',
+                     'Max49_90SY_One',
+                     'Max59_90SY_One',
+                     'Max35_90SY_One')
+UNION
+select  c.transact_date,c.subscriber_id, c.usage_threshold_id, c.usage_threshold_value, c.des_plan, c.ciclo, c.Po_Id, c.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id desc) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 55.90',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 75.00',
+                            'Max Ilimitado 79.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 89.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 109.90',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))c
+ where (usage_threshold_id = '8515' and posicion <> 3)
+   AND PO_ID NOT IN ('maxIlimitado55_90CR2SY',
+                     'maxIlimitado65_CR2SY',
+                     'claroMaxIntnacional_69Chip_CROne',
+                     'claroMax_Internacional_69_CROne',
+                     'maxIlimitado75_CR2SY',
+                     'MaxIlim75SY_One',
+                     'claroMaxIntnacional_75Chip_CROne',
+                     'claroMax_Internacional_75_CROne',
+                     'maxIlimitado79_90CR2SY',
+                     'claroMaxIntnacional_79Chip_CROne',
+                     'claroMax_Internacional_79_CROne',
+                     'maxIlimitado85_CR2SY',
+                     'claroMaxIntnacional_85Chip_CROne',
+                     'claroMax_Internacional_85_CROne',
+                     'maxIlimitado89_90CR2SY',
+                     'maxIlimitado105_CR2SY',
+                     'maxIlimitado105_CR3SY',
+                     'maxIlimitado105_SY',
+                     'claroMax_Internacional_105_CROne',
+                     'maxIlimitado109_90CR2SY',
+                     'maxIlimitado125_CR2SY',
+                     'claroMaxInternacio_125Chip_CROne',
+                     'claroMax_Internacional_125_CROne',
+                     'maxIlimitado159_90_CR2SY',
+                     'maxIlimitado189_90_CR2SY',
+                     'maxIlimitado289_90_CR2SY')
+UNION
+select d.transact_date,d.subscriber_id,d.usage_threshold_id,d.usage_threshold_value,d.des_plan,d.ciclo,d.Po_Id,d.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id desc) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 55.90',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 75.00',
+                            'Max Ilimitado 79.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 89.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 109.90',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))d
+ where (usage_threshold_id = '8516' and posicion <> 2)
+   AND PO_ID NOT IN ('maxIlimitado55_90CR2SY',
+                     'maxIlimitado65_CR2SY',
+                     'claroMaxIntnacional_69Chip_CROne',
+                     'claroMax_Internacional_69_CROne',
+                     'maxIlimitado75_CR2SY',
+                     'MaxIlim75SY_One',
+                     'claroMaxIntnacional_75Chip_CROne',
+                     'claroMax_Internacional_75_CROne',
+                     'maxIlimitado79_90CR2SY',
+                     'claroMaxIntnacional_79Chip_CROne',
+                     'claroMax_Internacional_79_CROne',
+                     'maxIlimitado85_CR2SY',
+                     'claroMaxIntnacional_85Chip_CROne',
+                     'claroMax_Internacional_85_CROne',
+                     'maxIlimitado89_90CR2SY',
+                     'maxIlimitado105_CR2SY',
+                     'maxIlimitado105_CR3SY',
+                     'maxIlimitado105_SY',
+                     'claroMax_Internacional_105_CROne',
+                     'maxIlimitado109_90CR2SY',
+                     'maxIlimitado125_CR2SY',
+                     'claroMaxInternacio_125Chip_CROne',
+                     'claroMax_Internacional_125_CROne',
+                     'maxIlimitado159_90_CR2SY',
+                     'maxIlimitado189_90_CR2SY',
+                     'maxIlimitado289_90_CR2SY')
+UNION
+select e.transact_date,e.subscriber_id,e.usage_threshold_id,e.usage_threshold_value,e.des_plan,e.ciclo,e.Po_Id,e.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id ASC) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 55.90',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 75.00',
+                            'Max Ilimitado 79.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 89.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 109.90',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))e
+ where (usage_threshold_id = '8516' and posicion <> 2)
+   AND PO_ID NOT IN ('maxIlimitado55_90CR2SY',
+                     'maxIlimitado65_CR2SY',
+                     'claroMaxIntnacional_69Chip_CROne',
+                     'claroMax_Internacional_69_CROne',
+                     'maxIlimitado75_CR2SY',
+                     'MaxIlim75SY_One',
+                     'claroMaxIntnacional_75Chip_CROne',
+                     'claroMax_Internacional_75_CROne',
+                     'maxIlimitado79_90CR2SY',
+                     'claroMaxIntnacional_79Chip_CROne',
+                     'claroMax_Internacional_79_CROne',
+                     'maxIlimitado85_CR2SY',
+                     'claroMaxIntnacional_85Chip_CROne',
+                     'claroMax_Internacional_85_CROne',
+                     'maxIlimitado89_90CR2SY',
+                     'maxIlimitado105_CR2SY',
+                     'maxIlimitado105_CR3SY',
+                     'maxIlimitado105_SY',
+                     'claroMax_Internacional_105_CROne',
+                     'maxIlimitado109_90CR2SY',
+                     'maxIlimitado125_CR2SY',
+                     'claroMaxInternacio_125Chip_CROne',
+                     'claroMax_Internacional_125_CROne',
+                     'maxIlimitado159_90_CR2SY',
+                     'maxIlimitado189_90_CR2SY',
+                     'maxIlimitado289_90_CR2SY')
+UNION
+select f.transact_date,f.subscriber_id,f.usage_threshold_id,f.usage_threshold_value,f.des_plan,f.ciclo,f.Po_Id,f.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id ASC) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 55.90',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 75.00',
+                            'Max Ilimitado 79.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 89.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 109.90',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))f
+ where (usage_threshold_id = '8517' and posicion <> 3)
+   AND PO_ID NOT IN ('maxIlimitado55_90CR2SY',
+                     'maxIlimitado65_CR2SY',
+                     'claroMaxIntnacional_69Chip_CROne',
+                     'claroMax_Internacional_69_CROne',
+                     'maxIlimitado75_CR2SY',
+                     'MaxIlim75SY_One',
+                     'claroMaxIntnacional_75Chip_CROne',
+                     'claroMax_Internacional_75_CROne',
+                     'maxIlimitado79_90CR2SY',
+                     'claroMaxIntnacional_79Chip_CROne',
+                     'claroMax_Internacional_79_CROne',
+                     'maxIlimitado85_CR2SY',
+                     'claroMaxIntnacional_85Chip_CROne',
+                     'claroMax_Internacional_85_CROne',
+                     'maxIlimitado89_90CR2SY',
+                     'maxIlimitado105_CR2SY',
+                     'maxIlimitado105_CR3SY',
+                     'maxIlimitado105_SY',
+                     'claroMax_Internacional_105_CROne',
+                     'maxIlimitado109_90CR2SY',
+                     'maxIlimitado125_CR2SY',
+                     'claroMaxInternacio_125Chip_CROne',
+                     'claroMax_Internacional_125_CROne',
+                     'maxIlimitado159_90_CR2SY',
+                     'maxIlimitado189_90_CR2SY',
+                     'maxIlimitado289_90_CR2SY')
+UNION
+select g.transact_date,g.subscriber_id,g.usage_threshold_id,g.usage_threshold_value,g.des_plan,g.ciclo,g.Po_Id,g.posicion, 
+  from (select a.transact_date,
+               a.subscriber_id subscriber_id,
+               a.usage_threshold_id,
+               a.usage_threshold_value,
+               b.des_plan,
+               b.ciclo,
+               b.Po_Id,
+               rank() over(partition by a.subscriber_id order by a.usage_threshold_id DESC) posicion
+          from DWS.Cbio_Usage_Threshold       
+               aseging.kv_lineas_postpago_one b
+         where subscriber_id = to_char(numero)
+           and des_plan in ('Max Ilimitado 55.90',
+                            'Max Ilimitado 65.00',
+                            'Max Ilimitado 69.90',
+                            'Max Ilimitado 75.00',
+                            'Max Ilimitado 79.90',
+                            'Max Ilimitado 85.00',
+                            'Max Ilimitado 89.90',
+                            'Max Ilimitado 105.00',
+                            'Max Ilimitado 109.90',
+                            'Max Ilimitado 125.00',
+                            'Max Ilimitado 159.90',
+                            'Max Ilimitado 189.90',
+                            'Max Ilimitado 289.90')
+           and usage_threshold_id in ('8515', '8516', '8517'))g
+ where (usage_threshold_id = '8517' and posicion <> 1)
+   AND PO_ID NOT IN ('maxIlimitado55_90CR2SY',
+                     'maxIlimitado65_CR2SY',
+                     'claroMaxIntnacional_69Chip_CROne',
+                     'claroMax_Internacional_69_CROne',
+                     'maxIlimitado75_CR2SY',
+                     'MaxIlim75SY_One',
+                     'claroMaxIntnacional_75Chip_CROne',
+                     'claroMax_Internacional_75_CROne',
+                     'maxIlimitado79_90CR2SY',
+                     'claroMaxIntnacional_79Chip_CROne',
+                     'claroMax_Internacional_79_CROne',
+                     'maxIlimitado85_CR2SY',
+                     'claroMaxIntnacional_85Chip_CROne',
+                     'claroMax_Internacional_85_CROne',
+                     'maxIlimitado89_90CR2SY',
+                     'maxIlimitado105_CR2SY',
+                     'maxIlimitado105_CR3SY',
+                     'maxIlimitado105_SY',
+                     'claroMax_Internacional_105_CROne',
+                     'maxIlimitado109_90CR2SY',
+                     'maxIlimitado125_CR2SY',
+                     'claroMaxInternacio_125Chip_CROne',
+                     'claroMax_Internacional_125_CROne',
+                     'maxIlimitado159_90_CR2SY',
+                     'maxIlimitado189_90_CR2SY',
+                     'maxIlimitado289_90_CR2SY');
