@@ -6,7 +6,7 @@ rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
 https://github.com/DashClaro/rapo-dashboard.git
 
-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
+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
 
 
 
