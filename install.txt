@@ -2,6 +2,10 @@ yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-9.no
 
 yum install -y mysql-community-server
 
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
+
+
 
 lower_case_table_names = 1
 innodb_buffer_pool_size = 24G
