@@ -1,0 +1,81 @@
+yum localinstall -y https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+
+yum install -y mysql-community-server
+
+
+lower_case_table_names = 1
+innodb_buffer_pool_size = 24G
+innodb_buffer_pool_instances = 1
+event_scheduler = on
+innodb_log_file_size = 2G
+query_cache_type = 0
+innodb_flush_log_at_trx_commit = 1
+innodb_flush_method = O_DIRECT
+default-time-zone='+00:00'
+
+
+
+mysql -h localhost -u root -p
+sql> create user 'root'@'%' identified by '<root user password>';
+sql> grant all privileges on *.* to 'root'@'%' with grant option;
+sql> create user 'dash'@'%' identified by '<dashboard user password>';
+sql> grant all privileges on *.* to 'dash'@'localhost';
+sql> flush privileges;
+
+
+
+yum -y install -y curl
+# Add external Node.js repository for RHEL
+curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+# Install Node
+yum install -y nodejs
+# Test
+node -v
+npm -v
+# Install bower, grunt, pm2
+npm install --global bower
+npm install --global grunt-cli
+npm install --global pm2
+
+
+cd /opt/dash
+# clone Bitbucket project
+git clone https://tasktrack.telekom.at/bitbucket/scm/tagra/a1g-ra-dashboard.git ra-dashboard
+# Install required dependencies (ignore any errors related to the development environment)
+cd /opt/dash/ra-dashboard
+npm install
+bower install
+
+
+
+cp server/utils/db.js.spec server/utils/db.js
+vi server/utils/db.js
+var mysql = require('mysql');
+var pool = mysql.createPool({
+connectionLimit : 10,
+host : 'localhost',
+database : 'tag',
+user : 'dash',
+password : '<dashboard user password>',
+timezone : 'UTC'
+});
+module.exports = pool;
+
+
+
+{
+"apps" : [{
+"name" : "A1G-Dashboard",
+"script" : "node",
+"args" : ["server"],
+"error_file" : "/opt/dash/log/A1G-Dashboard.err.log",
+"out_file" : "/opt/dash/log/A1G-Dashboard.out.log",
+"log_date_format" : "YYYY-MM-DD HH:mm:ss.SSS",
+"watch" : ["server", "client"],
+"autorestart" : true,
+"env": {
+"NODE_ENV": "production",
+"PORT": 9000
+}
+}]
+}
