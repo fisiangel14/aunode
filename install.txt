@@ -7,6 +7,12 @@ rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 https://github.com/DashClaro/rapo-dashboard.git
 
 
+
+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
+
+
+
+
 lower_case_table_names = 1
 innodb_buffer_pool_size = 24G
 innodb_buffer_pool_instances = 1
