@@ -4,7 +4,7 @@ yum install -y mysql-community-server
 
 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 
-
+https://github.com/DashClaro/rapo-dashboard.git
 
 
 lower_case_table_names = 1
