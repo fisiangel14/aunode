@@ -48,7 +48,6 @@ npm install --global pm2
 
 cd /opt/dash
 # clone Bitbucket project
-git clone https://tasktrack.telekom.at/bitbucket/scm/tagra/a1g-ra-dashboard.git ra-dashboard
 # Install required dependencies (ignore any errors related to the development environment)
 cd /opt/dash/ra-dashboard
 npm install
